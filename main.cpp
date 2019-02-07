@@ -38,6 +38,10 @@ int main() {
     queue1.push("Can");
     queue1.push("Queue");
     queue1.printQueue();
+    queue1.pop();
+    queue1.printQueue();
+    queue1.pop();
+    queue1.printQueue();
     stack1.getSize();
 //    cout << stack1.pop() << endl;
 

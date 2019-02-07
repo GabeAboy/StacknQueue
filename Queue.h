@@ -44,15 +44,23 @@ class Queue{
                     // Should return object not pointer
                     Node<Object> temp = *front;
 
-                    free(front);
-                    front=tail=NULL;
+                    delete(front);
+                    //TODO Deconstruct everything
+                    cout<<"I just popped "<<temp.getItem()<<endl;
+                    Node<Object> *defaultNode =new Node<Object>(Object());
+                    front = defaultNode;
+                    tail = defaultNode;
+                    size--;
                 } else{
                     // Memory dereference case
                     Node<Object> *ptr = front;
                     // Return case
                     Node<Object> popNode = *front;
+                    cout << "I popped " <<popNode.getItem()<<endl;
                     front = front->getNext();
-                    free(ptr);
+                    delete(ptr);
+                    size--;
+
                 }
             }
         }
