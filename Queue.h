@@ -26,7 +26,7 @@ class Queue{
         void push(Object data){
 //             new Node<Object>(data, *front);
             Node<Object> *ptr = new Node<Object>(data);
-            if(front==NULL){
+            if(size==0){
                 front=ptr;
                 tail=ptr;
                 size++;
@@ -57,14 +57,16 @@ class Queue{
             }
         }
         void printQueue(){
+
         if(size==0){
             cout << "Queue is empty, points to null ptr" << endl;
         } else{
             Node<Object> *tempTop = front;
-            tempTop = tempTop->getNext();
             for(int i = 0; i < size; i++ ){
-               cout << tempTop->getItem()  << endl;
-               tempTop=tempTop->getNext();
+               cout <<"ITEM "<< tempTop->getItem()  << endl;
+               if(tempTop->getNext()!= nullptr){
+                   tempTop=tempTop->getNext();
+               }
             }
         }
     }

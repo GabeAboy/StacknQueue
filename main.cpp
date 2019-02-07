@@ -34,6 +34,9 @@ int main() {
 //    stack1.findNode("ackets");
 
     queue1.push("Hi");
+    queue1.push("Gabriel");
+    queue1.push("Can");
+    queue1.push("Queue");
     queue1.printQueue();
     stack1.getSize();
 //    cout << stack1.pop() << endl;
