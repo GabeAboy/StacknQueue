@@ -1,5 +1,6 @@
 #include "Node.h"
 #include "Stack.h"
+#include "Queue.h"
 #include <iostream>
 #include <string>
 using namespace std;
@@ -14,6 +15,7 @@ int main() {
 //    cout << node2.getNext()->getItem() << endl;
 
     Stack<string> stack1;
+    Queue<string> queue1;
     stack1.push("Hello, World!");//0
     stack1.push("brackets");//1
     stack1.push("<>{}[]");//2
@@ -31,6 +33,8 @@ int main() {
 //    cout << stack1.pop() << endl;
 //    stack1.findNode("ackets");
 
+    queue1.push("Hi");
+    queue1.printQueue();
     stack1.getSize();
 //    cout << stack1.pop() << endl;
 
