@@ -7,6 +7,8 @@
 #include <iostream>
 #include "Node.h"
 #include <string>
+#include <winnt.h>
+
 using namespace std;
 /*
  * Stack class
@@ -19,6 +21,7 @@ class Stack {
 private:
     // Store a pointer to where the top Node is located
     Node<Object> *top;
+    int size = 0;
 
 public:
     // Default Constructor
@@ -48,6 +51,7 @@ public:
         // The * dereferences the pointer (goes to the
         // memory address the pointer stores).
         top = new Node<Object>(item, *top);
+        size++;
     }
 
     // TODO: Need to deallocate all of the Nodes from the Stack
@@ -70,11 +74,28 @@ public:
         // Make sure the pointer is not storing a stale address
         temp = nullptr;
         // Return the Object that was stored in the Node
+        size--;
         return returnVal;
     }
-    void findNode(string thing){
-        cout<<"Here"<<thing<<endl;
-        for(var i = 0;)
+    void getSize(){
+        cout << "Size "<<size<< endl;
+    }
+    bool findNode(string thing){
+        //O(n)
+        Node<Object> *tempTop = top;
+        if(tempTop->getItem() == thing){
+            return true;
+        }
+        tempTop = tempTop->getNext();
+        for(int i = 1; i < size; i++ ){
+            if(tempTop->getItem()==thing){
+                return true;
+            }
+            else{
+                tempTop = tempTop->getNext();
+            }
+        }
+        return false;
     }
 };
 
